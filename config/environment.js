@@ -35,7 +35,7 @@ module.exports = function(environment) {
 
     awsBucket: "mad-decent-twerkshop-videos",
     awsBucketEndpoint: "//mad-decent-twerkshop-videos.s3.amazonaws.com",
-    assetEndpoint: "//mad-decent-twerkshop.s3.amaznoaws.com"
+    assetEndpoint: "//s3.amazonaws.com/mad-decent-twerkshop"
   };
 
   if (environment === 'development') {
