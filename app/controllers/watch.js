@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
   }.property("value"),
 
   s3Url: function() {
-    return ENV.awsBucketEndpoint + this.get("location");
+    return ENV.awsBucketEndpoint + "/" + this.get("location");
   }.property("location"),
 
   overlayUrl: function() {
