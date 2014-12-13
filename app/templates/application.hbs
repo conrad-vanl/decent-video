@@ -1,3 +1,11 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<div class="header">
+  <div class="container">
+    {{#link-to "index" class="mad-decent-brand"}}<img src="/images/mad-decent-logo.svg">{{/link-to}}
 
-{{outlet}}
+    <h1><small>Twerk it out with a very, very</small> <strong>#Decent</strong>xmas</h1>
+  </div>
+</div>
+
+<div class="container container-box">{{outlet}}</div>
+
+{{#if isLoading}}<div class="application-loader">{{partial "loading"}}</div>{{/if}}

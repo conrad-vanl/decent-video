@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "tkshop";
+  src:url("/fonts/tkshop.eot");
+  src:url("/fonts/tkshop.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/tkshop.woff") format("woff"),
+    url("/fonts/tkshop.ttf") format("truetype"),
+    url("/fonts/tkshop.svg#tkshop") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "tkshop" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="tkshop-"]:before,
+[class*=" tkshop-"]:before {
+  font-family: "tkshop" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tkshop-facebook-squared:before {
+  content: "a";
+}
+.tkshop-twitter:before {
+  content: "b";
+}
+.tkshop-pinterest:before {
+  content: "c";
+}
+.tkshop-cloud-download:before {
+  content: "d";
+}

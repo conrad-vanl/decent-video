@@ -1,0 +1,29 @@
+<nav class="container-box-header">
+  <h2 class="brand-logo">Choose a scene</h2>
+
+  {{#link-to "watch" scene imageName class="btn btn-primary"}}Finish{{/link-to}}
+</nav>
+
+<div class="scene-options">
+  {{#link-to (query-params scene="outer-space")}}
+    <img src="http://placehold.it/150x150">
+    <span>Outer Space</span>
+  {{/link-to}}
+  {{#link-to (query-params scene="outlaw-on-skis")}}
+    <img src="http://placehold.it/150x150">
+    <span>I Do What I Want</span>
+  {{/link-to}}
+  {{#link-to (query-params scene="twerkmobile")}}
+    <img src="http://placehold.it/150x150">
+    <span>Twerkmobile</span>
+  {{/link-to}}
+  {{#link-to (query-params scene="welcome-to-hell")}}
+    <img src="http://placehold.it/150x150">
+    <span>Welcome to Hell</span>
+  {{/link-to}}
+</div>
+
+
+<div class="scene-preview">
+  {{canvas-preview scene=scene image=url scale=0.5}}
+</div>

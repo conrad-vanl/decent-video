@@ -6,6 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('create', { path: 'twerk' }, function() {
+    //this.route('image');
+    this.route('crop', { path: "/crop/:url"});
+    this.route('scene', { path: "/scene/:url"});
+  });
+
+  this.route('watch', { path: "w/:scene/:image"});
 });
 
 export default Router;

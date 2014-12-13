@@ -1,0 +1,342 @@
+@charset "UTF-8";
+
+@import "bower_components/susy/sass/susy";
+$susy: (
+  columns: 12,
+  gutters: .25,
+  math: fluid,
+);
+
+// Mixins
+@import "bower_components/materialize/sass/components/prefixer";
+@import "bower_components/materialize/sass/components/mixins";
+
+// Reset
+@import "bower_components/materialize/sass/components/normalize";
+
+// components
+@import "bower_components/materialize/sass/components/color";
+@import "bower_components/materialize/sass/components/global";
+@import "bower_components/materialize/sass/components/icons-material-design";
+//@import "bower_components/materialize/sass/components/grid";
+@import "bower_components/materialize/sass/components/navbar";
+//@import "bower_components/materialize/sass/components/roboto";
+//@import "bower_components/materialize/sass/components/typography";
+//@import "bower_components/materialize/sass/components/cards";
+//@import "bower_components/materialize/sass/components/toast";
+//@import "bower_components/materialize/sass/components/tabs";
+@import "bower_components/materialize/sass/components/tooltip";
+@import "bower_components/materialize/sass/components/buttons";
+//@import "bower_components/materialize/sass/components/dropdown";
+@import "bower_components/materialize/sass/components/waves";
+//@import "bower_components/materialize/sass/components/modal";
+//@import "bower_components/materialize/sass/components/collapsible";
+@import "bower_components/materialize/sass/components/materialbox";
+@import "bower_components/materialize/sass/components/form";
+//@import "bower_components/materialize/sass/components/table_of_contents";
+//@import "bower_components/materialize/sass/components/sideNav";
+//@import "bower_components/materialize/sass/components/preloader";
+//@import "bower_components/materialize/sass/components/date_picker/default.scss";
+//@import "bower_components/materialize/sass/components/date_picker/default.date.scss";
+//@import "bower_components/materialize/sass/components/date_picker/default.time.scss";
+
+@import "loading";
+@import "fonts";
+
+$green: #3cc76e;
+$red: #de3634;
+$text-light: #bec5cc;
+
+$font-family: "brandon-grotesque";
+html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container { @include container(698px); min-width: 698px; width: 698px; }
+
+.container-box { 
+  background-image: url(/images/bg.gif);
+  height: 640px;
+  margin-top: 20px;
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+  text-align: center;
+  color: white;
+  position: relative;
+
+  h2 { font-size: 2em; margin-bottom: 0; text-transform: uppercase; font-weight: 900; }
+  h3 { margin-top: 0; color: #bfedd1; font-size: 1.5em; margin-top: -12px; }
+}
+
+.container-box-header {
+  background: $red;
+  text-align: left; 
+  .brand-logo {
+    text-align: left !important;
+    float: left !important;
+    color: white;
+    margin: 0;
+    padding: 2px 20px;
+    width: auto !important;
+  }
+  .btn { 
+    float: right;
+    margin: 13px;
+    @extend .red, .lighten-5;
+
+  }
+}
+
+.btn-floating {
+  background: white;
+  color: $green;
+  width: 72px;
+  height: 72px;
+  line-height: 72px;
+  bottom: 8px;
+  right: -8px;
+  position: absolute;
+  i { line-height: 72px; color: $green; font-size: 30px; }
+}
+
+// header
+.header {
+  padding-top: 50px;
+  overflow: hidden;
+
+  .mad-decent-brand { 
+    float: left;
+    &, img { width: 75px; }
+  }
+
+  h1 { 
+    float: right;
+    color: $green;
+    text-transform: uppercase;
+    font-size: 36px;
+    text-align: right;
+    font-weight: 900;
+    text-align: right;
+    margin: 0;
+    line-height: 25px;
+
+    strong { color: $red; font-weight: 900; }
+    small { display: block; color: $text-light; font-size: 16px; font-weight: 700;}
+  }
+}
+
+/**
+ * create.image
+ **/
+
+ #twerk-filepicker-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+ }
+
+/**
+ * create.crop
+ **/
+
+ .image-preview-container {
+   width: 800px;
+   height: 800px;
+   overflow: hidden;
+   position: relative;
+   position: absolute;
+   zoom: 0.5;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+
+   &.generating {
+      zoom: 1;
+      top: 0;
+      left: 0;
+      transform: none;
+   }
+
+   &:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("/images/mask.png");
+    opacity: 0.8;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+   }
+
+   .handle {
+    position: absolute;
+    left: -1500px; right: -1500px; bottom: -1500px; top: -1500px;
+    z-index: 2;
+   }
+ }
+
+.image-control {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  width: 61px;
+  background: white;
+  color: $text-light;
+  font-size: 12px;
+
+  &.image-control-left { left: 0; }
+  &.image-control-right { right: 0; }
+
+  .image-control-icon-pre, .image-control-icon-post {
+    font-size: 20px;
+    color: $text-light;
+  }
+
+  .image-control-icon-post { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; }
+
+  input { position: absolute; top: 50%; width: 485px; left: -242px; left: -213px; margin-top: 4px; transform: rotate(-90deg);}
+}
+
+.pick-photo { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); }
+
+/**
+ * create.scene
+ **/
+
+.dancer-preview {
+  position: relative;
+  &.dancer-preview-default {
+    width: 100%; height: 0; padding-bottom: 100%;
+    position: relative;
+
+    .mask {
+      position: relative;
+      z-index: +1;
+      width: 100%;
+    }
+    .head {
+      position: absolute;
+      top: 5.9375%;
+      left: 22.2%;
+      width: 24.375%;
+    }
+  }
+}
+
+.scene-preview {
+  padding-top: 40px;
+
+  canvas {
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+  }
+}
+
+.scene-options {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-around;
+
+  img { max-width: 100%; margin: 0; padding: 0; }
+
+  a { padding: 0; margin: 0; height: 150px; position: relative; span { transition: transform 1s; } box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16); }
+  span { display: block; text-transform: uppercase; @extend .vertical-center; transform: translateY(-50%) rotate(45deg); position: absolute; left: 0; right: 0; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .active { outline: 3px solid white; }
+
+  a:hover, a.active { span { transform: ranslateY(-50%) rotate(45deg) scale(1.2); } }
+}
+
+.social-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24px;
+  padding-top: 12px;
+  margin: 0;
+  text-align: right;
+  
+  li { position: relative; }
+
+  button {
+    border: none; 
+    background: none; 
+    outline: none;
+    padding: 4px 17px;
+    margin: 5px 0;
+    text-transform: uppercase;
+    vertical-align: middle;
+    line-height: 24px;
+    text-align: right;
+    position: relative;
+
+    span {
+      font-size: 14px;
+      float: left;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      line-height: 37px;
+      padding-right: 38px;
+      background: #3bbd70;
+      padding-left: 05px;
+      border-top: 1px solid #43cd7a;
+      box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
+      transition: padding 0.5s, opacity 0.5s;
+      opacity: 0;
+    }
+
+    &:hover span {
+      padding-right: 58px;
+      opacity: 1;
+      padding-left: 15px;
+    }
+
+    i { vertical-align: sub; position: relative; z-index: +100; }
+  }
+}
+
+.generating-video {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 58px;
+  background: $text-light;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-align: left;
+  padding: 5px 10px;
+  .percentage { float: right; text-align: right; }
+}
+
+@media(max-width: 800px) {
+input[type=range]::-webkit-slider-thumb {
+  height: 28px;
+  width: 28px;
+  margin-top: -12px;
+}
+input[type=range]::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  margin-top: -12px;  
+}
+}
+
+.canvas-preview {
+  position: relative;
+
+  .play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+  button.play { position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); }
+
+  .loading-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+}
+
+.watch-preview { width: 640px; height: 640px; }

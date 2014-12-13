@@ -1,0 +1,16 @@
+{
+  "production": {
+    "store": {
+      "type": "redis",
+      "user": "rediscloud",
+      "password": "ePlXK7VsGwKZ7bJQ",
+      "host": "pub-redis-13629.us-east-1-4.4.ec2.garantiadata.com",
+      "port": 13629
+    },
+    "assets": {
+      "accessKeyId": "AKIAILV77G4HTJHMLGLQ",
+      "secretAccessKey": "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",
+      "bucket": "mad-decent-twerkshop"
+    }
+  }
+}

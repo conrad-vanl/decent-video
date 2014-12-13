@@ -1,0 +1,24 @@
+<div class="container container-box">
+  {{#if location}}
+    {{video-player url=s3Url}}
+  {{else}}
+    <div class="watch-preview">{{canvas-preview scene=params.scene image=overlayUrl}}</div>
+    <div class="generating-video">
+      {{#if ready}}
+      HQ video ready! <div class="percentage"><a href="#" {{action "switchVideo"}}>View</a></div>
+      {{else}}
+        Processing HQ &amp; downloadable video... <div class="percentage">{{percentageFormatted}}%</div>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <ul class="social-buttons">
+    <li><button {{action "socialFacebook"}}><i class="tkshop tkshop-facebook-squared"> </i> <span>share</span></button></li>
+    <li><button {{action "socialTwitter"}}><i class="tkshop tkshop-twitter"> </i> <span>tweet</span></button></li>
+    <li><button {{action "socialPinterest"}}><i class="tkshop tkshop-pinterest"> </i> <span>pin</span></button></li>
+    {{#if location}}<li><button {{action "download"}}><i class="tkshop tkshop-cloud-download"> </i> <span>download</span></button></li>{{/if}}
+  </ul>
+
+  {{#link-to "index" class="btn-floating waves"}}<i class="mdi-content-add"></i>{{/link-to}}
+
+</div>

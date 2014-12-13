@@ -1,0 +1,31 @@
+<nav class="container-box-header">
+  <h2 class="brand-logo">Adjust your photo</h2>
+  <button class="btn btn-primary" {{action "next"}}>Next</button>
+</nav>
+
+<!-- This wraps the whole cropper -->
+<div class="image-cropper">
+  <div class="image-preview-container">
+    <div class="image-preview">
+      <img {{bind-attr src=url width=widthScaled style=imageStyle}}>
+      <div class="handle"></div>
+    </div>
+  </div>
+</div>
+
+<button class="btn pick-photo" {{action "pickImage"}}>Change photo</button>
+
+<div class="image-control image-control-left">
+  ROTATE
+  <div class="image-control-icon-pre"><i class="mdi-image-rotate-right"> </i></div>
+  
+  {{input type="range" class="image-rotate" value=rotation step=1 max="90" min="-90"}}
+  <div class="image-control-icon-post"><i class="mdi-image-rotate-left"> </i></div>
+</div>
+
+<div class="image-control image-control-right">
+  ZOOM
+  <div class="image-control-icon-pre"><i class="mdi-content-add-circle-outline"> </i></div>
+  {{input type="range" class="image-zoom" value=zoom step="0.005" max="1" min="0"}}
+  <div class="image-control-icon-post"><i class="mdi-content-remove-circle-outline"> </i></div>
+</div>
