@@ -3,7 +3,7 @@ import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
 
-zip.workerScriptsPath = config.assetEndpoint;
+zip.workerScriptsPath = config.assetEndpoint + "/";
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
