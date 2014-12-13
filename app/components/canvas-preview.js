@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from "../config/environment";
 var rad = Math.PI / 180;
 
 export default Ember.Component.extend({
@@ -17,7 +18,7 @@ export default Ember.Component.extend({
     $("audio")[0].oncanplaythrough = function(){ this.set("audioReady", true); }.bind(this);
   }.on("didInsertElement"),
 
-  songPath: function() { return this.get("scenePath") + "/song.mp3"; }.property("scenePath"),
+  songPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/song.mp3"; }.property("scenePath"),
   _reloadSong: function() {
     this.set("audioReady", false);
     Ember.run.scheduleOnce("afterRender", this, function() {
@@ -25,8 +26,8 @@ export default Ember.Component.extend({
     });
   }.observes("songPath").on("didInsertElement"),
 
-  framesJsonPath: function() { return this.get("scenePath") + "/frames.json"; }.property("scenePath"),
-  framesZipPath: function() { return this.get("scenePath") + "/frames.zip"; }.property("scenePath"),
+  framesJsonPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/frames.json"; }.property("scenePath"),
+  framesZipPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/frames.zip"; }.property("scenePath"),
 
   _teardown: function() {
     this.$("audio")[0].pause();
