@@ -95,7 +95,10 @@ export default Ember.Component.extend({
     img.src = this.get("image");
   }.observes("image").on("didInsertElement"),
 
-  canPlay: Ember.computed.and("rawFramesReady","audioReady","overlayReady","jsonReady","isStopped"),
+  canPlay: Ember.computed.and("isLoaded","isStopped"),
+
+  isLoaded: Ember.computed.and("rawFramesReady","audioReady","overlayReady","jsonReady"),
+  isLoading: Ember.computed.not("isLoaded"),
 
   isPlaying: false,
   isStopped: Ember.computed.not("isPlaying"),

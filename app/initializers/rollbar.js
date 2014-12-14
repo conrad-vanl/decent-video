@@ -33,6 +33,5 @@ export function initialize(container, application) {
 
 export default {
   name: 'rollbar',
-  initialize: initialize,
-  after: "auth"
+  initialize: initialize
 };

@@ -42,9 +42,7 @@ export default Ember.ObjectController.extend({
     },
 
     download: function() {
-      filepicker.exportFile("http:"+this.get("s3Url"), {
-
-      });
+      filepicker.exportFile("http:"+this.get("s3Url"), {});
     },
 
     socialFb: function() {
