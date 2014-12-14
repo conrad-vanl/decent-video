@@ -6,19 +6,19 @@
 
 <div class="scene-options">
   {{#link-to (query-params scene="outer-space")}}
-    <img src="http://placehold.it/150x150">
+    <img {{bind-attr src=posterOuterSpace}}>
     <span>Outer Space</span>
   {{/link-to}}
   {{#link-to (query-params scene="outlaw-on-skis")}}
-    <img src="http://placehold.it/150x150">
+    <img {{bind-attr src=posterOutlawOnSkis}}>
     <span>I Do What I Want</span>
   {{/link-to}}
   {{#link-to (query-params scene="twerkmobile")}}
-    <img src="http://placehold.it/150x150">
+    <img {{bind-attr src=posterTwerkmobile}}>
     <span>Twerkmobile</span>
   {{/link-to}}
   {{#link-to (query-params scene="welcome-to-hell")}}
-    <img src="http://placehold.it/150x150">
+    <img {{bind-attr src=posterWelcomeToHell}}>
     <span>Welcome to Hell</span>
   {{/link-to}}
 </div>

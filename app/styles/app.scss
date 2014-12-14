@@ -255,13 +255,13 @@ html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
   padding-right: 10px;
   justify-content: space-around;
 
-  img { max-width: 100%; margin: 0; padding: 0; }
+  img { max-width: 100%; margin: 0; padding: 0; opacity: 0.2; transition: opacity 0.6s; }
 
-  a { padding: 0; margin: 0; height: 150px; position: relative; span { transition: transform 1s; } box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16); }
-  span { display: block; text-transform: uppercase; @extend .vertical-center; transform: translateY(-50%) rotate(45deg); position: absolute; left: 0; right: 0; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  a { background: $red; padding: 0; margin: 0; height: 150px; width: 150px; position: relative; span { transition: transform 1s; } box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16); }
+  span { display: block; text-transform: uppercase; @extend .vertical-center; transform: translateY(-50%) rotate(45deg); position: absolute; left: 0; right: 0; color: white; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); }
   .active { outline: 3px solid white; }
 
-  a:hover, a.active { span { transform: ranslateY(-50%) rotate(45deg) scale(1.2); } }
+  a:hover, a.active { span { transform: ranslateY(-50%) rotate(45deg) scale(1.2); } img { opacity: 1; } }
 }
 
 .social-buttons {

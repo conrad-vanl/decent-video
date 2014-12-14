@@ -1,7 +1,7 @@
 <div class="container container-box">
   <div class="video-box">
     {{#if location}}
-      {{video-player url=s3Url}}
+      {{video-player url=s3Url poster=poster}}
     {{else}}
       <div class="watch-preview">{{canvas-preview scene=params.scene image=overlayUrl}}</div>
       <div class="generating-video">

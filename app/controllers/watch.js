@@ -12,6 +12,10 @@ export default Ember.ObjectController.extend({
     return ENV.awsBucketEndpoint + "/" + this.get("location");
   }.property("location"),
 
+  poster: function() {
+    return ENV.API_ENDPOINT + "/preview/"+this.get("params.scene")+"/"+this.get("params.image");
+  }.property("params.image", "params.scene"),
+
   overlayUrl: function() {
     return "https://www.filepicker.io/api/file/" + this.get("params.image");
   }.property("params.image"),
