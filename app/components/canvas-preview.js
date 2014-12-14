@@ -27,7 +27,7 @@ export default Ember.Component.extend({
   }.observes("songPath").on("didInsertElement"),
 
   framesJsonPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/frames.json"; }.property("scenePath"),
-  framesZipPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/frames.zip"; }.property("scenePath"),
+  framesZipPath: function() { return ENV.assetEndpoint+this.get("scenePath") + "/small.zip"; }.property("scenePath"),
 
   _teardown: function() {
     this.$("audio")[0].pause();
