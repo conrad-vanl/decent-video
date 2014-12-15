@@ -63,6 +63,7 @@ export default Ember.ObjectController.extend({
       var url = "http://www.twitter.com/share?text="
         +encodeURIComponent(this.get("shareMessage").substr(0,90))
         +"&hashtags="+"decentxmas"
+        + "&via=maddecent"
         +"&url="+encodeURIComponent(location.href);
 
       window.open(url,'','width=800,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
