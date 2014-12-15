@@ -40,7 +40,7 @@ export default Ember.ObjectController.extend({
     }, 5000);
   },
 
-  shareMessage: "Wach me twerk to Mad Decent\'s a Very, Very Decent Xmas!",
+  shareMessage: "Wach my decent christmas video with Mad Decent\'s a Very, Very Decent Xmas!",
 
   actions: {
     switchVideo: function() {
