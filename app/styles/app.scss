@@ -112,6 +112,26 @@ html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
   i { line-height: 72px; color: $green; font-size: 30px; }
 }
 
+.home-container {
+  background-image: url(/images/diplo.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  height: 100%;
+  width: 100%;
+
+  .vertical-center {
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    h3 { color: $text-light; }
+    top: 70%;
+  }
+
+  .btn {
+    @extend .green;
+  }
+}
 // header
 .header {
   padding-top: 50px;
@@ -359,7 +379,7 @@ input[type=range]::-moz-range-thumb {
 
 .btn-tooltip {
   position: absolute;
-  width: 223px;
+  width: 273px;
   background: #de3634;
   color: white;
   text-transform: uppercase;
