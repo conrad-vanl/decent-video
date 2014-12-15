@@ -24,9 +24,9 @@ module.exports = function(environment) {
     contentSecurityPolicyHeader: "Content-Security-Policy",
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' d37gvrvc0wt4s1.cloudfront.net mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com use.typekit.net 192.168.1.91:35771 api.filepicker.io 192.168.1.91:35729 cdn.clappr.io",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.fadebook.com *.facebook.net d37gvrvc0wt4s1.cloudfront.net mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com use.typekit.net 192.168.1.91:35771 api.filepicker.io 192.168.1.91:35729 cdn.clappr.io",
       'font-src': "'self' mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com fontastic.s3.amazonaws.com cdn.clappr.io 'unsafe-inline' *",
-      'connect-src': "'self' s3.amazonaws.com mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com ws://192.168.1.91:35729 ws://192.168.1.91:35771 *.filepicker.io https://mad-decent-xmas-twerk.s3.amazonaws.com mad-decent-elf-twerk.herokuapp.com https://www.filepicker.io data:",
+      'connect-src': "'self' *.fadebook.com *.facebook.net s3.amazonaws.com mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com ws://192.168.1.91:35729 ws://192.168.1.91:35771 *.filepicker.io https://mad-decent-xmas-twerk.s3.amazonaws.com mad-decent-elf-twerk.herokuapp.com https://www.filepicker.io data:",
       'img-src': "*",
       'style-src': "'self' 'unsafe-inline' mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com fontastic.s3.amazonaws.com use.typekit.net",
       'frame-src': "'self' *",

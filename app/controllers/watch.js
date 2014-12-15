@@ -40,6 +40,8 @@ export default Ember.ObjectController.extend({
     }, 5000);
   },
 
+  shareMessage: "Wach me twerk to Mad Decent\'s a Very, Very Decent Xmas!",
+
   actions: {
     switchVideo: function() {
       this.set("location", this.get("_location"));
@@ -49,16 +51,31 @@ export default Ember.ObjectController.extend({
       filepicker.exportFile("http:"+this.get("s3Url"), {});
     },
 
-    socialFb: function() {
-
+    socialFacebook: function() {
+      FB.ui(
+       {
+        method: 'share',
+        href: location.href
+      }, function(response){});
     },
 
     socialTwitter: function() {
+      var url = "http://www.twitter.com/share?text="
+        +encodeURIComponent(this.get("shareMessage").substr(0,90))
+        +"&hashtags="+"decentxmas"
+        +"&url="+encodeURIComponent(location.href);
 
+      window.open(url,'','width=800,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
     },
 
+    // &media={URI-encoded URL of the image to pin}&description={optional URI-encoded description}
     socialPinterest: function() {
+      var url = "http://pinterest.com/pin/create/button/?url="
+        +encodeURIComponent(location.href)
+        +"&media="+encodeURIComponent(this.get("poster"))
+        +"&description="+encodeURIComponent(this.get("shareMessage"));
 
+      window.open(url,'','width=800,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
     }
   }
 });

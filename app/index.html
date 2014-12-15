@@ -31,6 +31,24 @@ var _rollbarConfig = {
   <body>
     {{content-for 'body'}}
 
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '570900676343143',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <script type="text/javascript"
  src="//api.filepicker.io/v1/filepicker.js"></script>
     <script type="text/javascript" charset="utf-8" src="http://cdn.clappr.io/latest/clappr.min.js"></script>
