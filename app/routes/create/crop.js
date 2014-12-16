@@ -18,5 +18,10 @@ export default Ember.Route.extend({
       );
     });
     //return Ember.Object.create({url: url});
+  },
+  afterModel: function() {
+    if(ga && typeof(ga) == "function") {
+      ga('send', 'event', 'video:creation', "crop"); 
+    }
   }
 });
