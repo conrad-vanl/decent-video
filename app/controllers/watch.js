@@ -54,6 +54,9 @@ export default Ember.ObjectController.extend({
     },
 
     download: function() {
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'download', "done"); 
+      } 
       filepicker.exportFile("http:"+this.get("s3Url"), {});
     },
 

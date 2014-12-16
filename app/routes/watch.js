@@ -9,12 +9,17 @@ export default Ember.Route.extend({
 
   actions: {
     requestDownload: function() {
+
       this.send("closeModal");
       this.render('download-request', {
         into: 'application', 
         outlet: 'modal',
         view: "download-request"
       });
+
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'download', "request"); 
+      } 
     },
 
     startDownload: function(controller) {
@@ -28,6 +33,10 @@ export default Ember.Route.extend({
         this.controllerFor("watch").set("status", "found");
         this.send("showDownloadStartSuccess");
       }.bind(this));
+
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'download', "start"); 
+      } 
     },
 
     showDownloadStartSuccess: function() {
