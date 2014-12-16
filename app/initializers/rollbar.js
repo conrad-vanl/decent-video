@@ -1,7 +1,7 @@
 import ENV from "../config/environment";
 
 export function initialize(container, application) {
-
+  if(typeof(Rollbar) == "undefined") return;
   Rollbar.configure({
     payload: {
       environment: ENV.environment

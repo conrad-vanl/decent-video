@@ -19,14 +19,14 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    API_ENDPOINT: "//mad-decent-elf-twerk.herokuapp.com",
+    API_ENDPOINT: "//decentxmas.com",
 
     contentSecurityPolicyHeader: "Content-Security-Policy",
     contentSecurityPolicy: {
-      'default-src': "'none' cdn.clappr.io",
-      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.fadebook.com *.facebook.net d37gvrvc0wt4s1.cloudfront.net mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com use.typekit.net 192.168.1.91:35771 api.filepicker.io 192.168.1.91:35729 cdn.clappr.io",
-      'font-src': "'self' mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com fontastic.s3.amazonaws.com cdn.clappr.io 'unsafe-inline' *",
-      'connect-src': "'self' *.fadebook.com *.facebook.net s3.amazonaws.com mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com ws://192.168.1.91:35729 ws://192.168.1.91:35771 *.filepicker.io https://mad-decent-xmas-twerk.s3.amazonaws.com mad-decent-elf-twerk.herokuapp.com https://www.filepicker.io data:",
+      'default-src': "cdn.clappr.io decentxmas.com",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *.google-analytics.com decentxmas.com *.facebook.com *.facebook.net d37gvrvc0wt4s1.cloudfront.net mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com use.typekit.net 192.168.1.91:35771 api.filepicker.io 192.168.1.91:35729 cdn.clappr.io",
+      'font-src': "'self' decentxmas.com mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com fontastic.s3.amazonaws.com cdn.clappr.io 'unsafe-inline' *",
+      'connect-src': "'self' decentxmas.com 192.168.1.91:3000 *.fadebook.com *.facebook.net s3.amazonaws.com mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com ws://192.168.1.91:35729 ws://192.168.1.91:35771 *.filepicker.io https://mad-decent-xmas-twerk.s3.amazonaws.com mad-decent-elf-twerk.herokuapp.com https://www.filepicker.io data:",
       'img-src': "*",
       'style-src': "'self' 'unsafe-inline' mad-decent-twerkshop-videos.s3.amazonaws.com mad-decent-twerkshop.s3.amaznoaws.com fontastic.s3.amazonaws.com use.typekit.net",
       'frame-src': "'self' *",
@@ -46,6 +46,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     ENV.assetEndpoint = "";
+    ENV.API_ENDPOINT = "//192.168.1.91:3000";
   }
 
   if (environment === 'test') {

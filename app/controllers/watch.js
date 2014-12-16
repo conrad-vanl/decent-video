@@ -20,27 +20,33 @@ export default Ember.ObjectController.extend({
     return "https://www.filepicker.io/api/file/" + this.get("params.image");
   }.property("params.image"),
 
-  _startPoll: function() { 
-    if(!this.get("location") && this.get("model")) {
-      this._poll();
-    }
-  }.observes("location").on("init"),
+  // _startPoll: function() { 
+  //   if(!this.get("location") && this.get("model")) {
+  //     this._poll();
+  //   }
+  // }.observes("location").on("init"),
 
-  _poll: function() {
-    Ember.run.later(this, function() {
-      $.getJSON(ENV.API_ENDPOINT + "/video/"+this.get("params.scene")+"/"+this.get("params.image")).then(function(result){
-        if(result.location) { 
-          this.set("_location", result.location);
-          this.set("ready", true);
-        } else {
-          this.set("value", result.value);
-          this._poll();
-        }
-      }.bind(this));
-    }, 5000);
-  },
+  // _poll: function() {
+  //   Ember.run.later(this, function() {
+  //     $.getJSON(ENV.API_ENDPOINT + "/video/"+this.get("params.scene")+"/"+this.get("params.image")).then(function(result){
+  //       if(result.location) { 
+  //         this.set("_location", result.location);
+  //         this.set("ready", true);
+  //       } else {
+  //         this.set("value", result.value);
+  //         this._poll();
+  //       }
+  //     }.bind(this));
+  //   }, 5000);
+  // },
 
   shareMessage: "Watch my decent Christmas video with Mad Decent\'s a Very, Very Decent Xmas!",
+
+  downloadAction: function() {
+    if(this.get("location") && this.get("location").length > 0) return "download";
+    if(this.get("status") && this.get("status") == "found") return "downloadPending";
+    return "requestDownload";
+  }.property("location","status"),
 
   actions: {
     switchVideo: function() {

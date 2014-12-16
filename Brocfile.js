@@ -17,6 +17,8 @@ app.import("bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js");
 app.import("bower_components/html2canvas/build/html2canvas.js");
 app.import("bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js");
 
+app.import("bower_components/materialize/js/velocity.min.js");
+app.import("bower_components/materialize/js/leanModal.js");
 app.import("bower_components/materialize/font/material-design-icons/Material-Design-Icons.eot", {
   destDir: 'font/material-design-icons'
 });

@@ -1,0 +1,12 @@
+<h1>Download your decent video</h1>
+<h3>Please provide your email address and we'll let you know as soon as your video is ready to download.</h3>
+
+{{#validatable-form action="startDownload" model=this}}
+  <div class="input-field">
+    {{input type="email" value=email placeholder="Email Address" required=true}}
+  </div>
+
+  <small>We will never share or spam your email.</small>
+
+  <button type="submit" class="btn btn-primary" style="float: right;">{{#if isLoading}}Loading...{{else}}Generate Video{{/if}}</button>
+{{/validatable-form}}

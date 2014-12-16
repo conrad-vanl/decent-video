@@ -115,7 +115,10 @@ export default Ember.Component.extend({
       this.set("lastFrameRendered", null);
       this.$("audio")[0].play();
       this.renderFrame();
-    }    
+    }   
+    if(ga && typeof(ga) == "function") {
+      ga('send', 'event', 'video:play', this.get("scene"), this.get("image")); 
+    } 
   },
 
   currentFrame: 0,

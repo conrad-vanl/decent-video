@@ -28,6 +28,10 @@ export default Ember.Route.extend({
         );
 
       }.bind(this));
+
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'pickImage', "opened"); 
+      }
     },
 
     showLoading: function() { this.loading(true); },

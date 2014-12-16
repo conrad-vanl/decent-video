@@ -29,7 +29,7 @@ $susy: (
 @import "bower_components/materialize/sass/components/buttons";
 //@import "bower_components/materialize/sass/components/dropdown";
 @import "bower_components/materialize/sass/components/waves";
-//@import "bower_components/materialize/sass/components/modal";
+@import "bower_components/materialize/sass/components/modal";
 //@import "bower_components/materialize/sass/components/collapsible";
 @import "bower_components/materialize/sass/components/materialbox";
 @import "bower_components/materialize/sass/components/form";
@@ -68,8 +68,10 @@ html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
   position: relative;
 
   h2 { font-size: 2em; margin-bottom: 0; text-transform: uppercase; font-weight: 900; }
-  h3 { margin-top: 0; color: #bfedd1; font-size: 1.5em; margin-top: -12px; }
+  h3 { color: #bfedd1; }
 }
+
+h3 { margin-top: 0; font-size: 1.5em; margin-top: -12px; }
 
 .container-box-header {
   background: $red;
@@ -87,6 +89,28 @@ html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
     margin: 13px;
     @extend .red, .lighten-5;
 
+  }
+}
+
+.modal {
+  width: 55%;
+  max-width: 480px;
+
+  h1 { margin-bottom: 0; }
+  h3 { line-height: 1em;
+      font-weight: 400;
+      color: #A2A9B0; }
+
+  input {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .input-error {
+    color: $red;
+    margin-top: 0;
+    font-weight: 400;
+    padding-bottom: 10px;
   }
 }
 

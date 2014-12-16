@@ -5,6 +5,16 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
+Router.reopen({
+  notifyGoogleAnalytics: function() {
+    console.log("notifyGoogleAnalytics");
+    return ga('send', 'pageview', {
+        'page': this.get('url'),
+        'title': this.get('url')
+      });
+  }.on('didTransition')
+});
+
 Router.map(function() {
   this.resource('create', { path: 'twerk' }, function() {
     //this.route('image');
