@@ -63,6 +63,9 @@ export default Ember.ObjectController.extend({
         method: 'share',
         href: location.href
       }, function(response){});
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'social:share', "facebook"); 
+      } 
     },
 
     socialTwitter: function() {
@@ -73,6 +76,9 @@ export default Ember.ObjectController.extend({
         +"&url="+encodeURIComponent(location.href);
 
       window.open(url,'','width=800,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'social:share', "twitter"); 
+      } 
     },
 
     // &media={URI-encoded URL of the image to pin}&description={optional URI-encoded description}
@@ -82,6 +88,9 @@ export default Ember.ObjectController.extend({
         +"&media="+encodeURIComponent(this.get("poster"))
         +"&description="+encodeURIComponent(this.get("shareMessage"));
 
+      if(ga && typeof(ga) == "function") {
+        ga('send', 'event', 'social:share', "pinterest"); 
+      } 
       window.open(url,'','width=800,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');
     }
   }
