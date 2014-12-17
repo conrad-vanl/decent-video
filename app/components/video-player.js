@@ -6,7 +6,7 @@ export default Ember.Component.extend({
       source: this.get("url"), poster: this.get("poster"), 
       width: 640, 
       height: 640,
-      gaAccount: "4ff1a512d7424564944465772bbe8bc1"
+      gaAccount: "4ff1a512d7424564944465772bbe8bc1",
       gaTracker:  "video"
     });
     player.attachTo(this.$()[0]);
