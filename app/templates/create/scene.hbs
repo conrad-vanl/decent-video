@@ -4,26 +4,44 @@
   {{#link-to "watch" scene imageName class="btn btn-primary"}}Finish{{/link-to}}
 </nav>
 
-<div class="scene-options">
-  {{#link-to (query-params scene="outer-space")}}
-    <img {{bind-attr src=posterOuterSpace}}>
-    <span>Outer Space</span>
-  {{/link-to}}
-  {{#link-to (query-params scene="outlaw-on-skis")}}
-    <img {{bind-attr src=posterOutlawOnSkis}}>
-    <span>I Do What I Want</span>
-  {{/link-to}}
-  {{#link-to (query-params scene="twerkmobile")}}
-    <img {{bind-attr src=posterTwerkmobile}}>
-    <span>Twerkmobile</span>
-  {{/link-to}}
-  {{#link-to (query-params scene="welcome-to-hell")}}
-    <img {{bind-attr src=posterWelcomeToHell}}>
-    <span>Welcome to Hell</span>
-  {{/link-to}}
-</div>
+<div class="scene-selection">
+  <div class="scene-options">
+    {{#link-to (query-params scene="outer-space")}}
+      <img {{bind-attr src=posterOuterSpace}}>
+      <span>Outer Space</span>
+
+      <div>
+        <strong>Troll The Halls</strong> Aquadrop
+      </div>
+    {{/link-to}}
+    {{#link-to (query-params scene="outlaw-on-skis")}}
+      <img {{bind-attr src=posterOutlawOnSkis}}>
+      <span>I Do What I Want</span>
+
+      <div>
+        <strong>6th Gear<br>(Bethlehem Edition)</strong> Diplo &amp; Alvaro<br>[feat. Kstylis]
+      </div>
+    {{/link-to}}
+    {{#link-to (query-params scene="twerkmobile")}}
+      <img {{bind-attr src=posterTwerkmobile}}>
+      <span>Twerkmobile</span>
+
+      <div>
+        <strong>Rock Them Bells</strong> Jesse Slayer &amp; Wuki
+      </div>
+    {{/link-to}}
+    {{#link-to (query-params scene="welcome-to-hell")}}
+      <img {{bind-attr src=posterWelcomeToHell}}>
+      <span>Welcome to Hell</span>
+
+      <div>
+        <strong>Lil Drumma Boy</strong> Snappy Jit
+      </div>
+    {{/link-to}}
+  </div>
 
 
-<div class="scene-preview">
-  {{canvas-preview scene=scene image=url scale=0.5}}
+  <div class="scene-preview scene-selection-preview">
+    {{canvas-preview scene=scene image=url scale=0.5}}
+  </div>
 </div>
