@@ -1,6 +1,12 @@
 import Ember from 'ember';
+import env from "../../config/environment";
+import AppLoad from "../../mixins/application-loading";
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend(AppLoad, {
+  needs: ["create"],
+  file: Ember.computed.alias("controllers.create.file"),
+  url: Ember.computed.alias("file.data"),
+
   rotation: 0,
   _imageStyle: function(){
     //return "transform: rotate("+this.get("rotation")+"deg)";
@@ -14,70 +20,51 @@ export default Ember.ObjectController.extend({
     return this.get("zoom") * (800*2) + 800
   }.property("zoom"),
 
+  generate: function() {
+    this.set("isGenerating", true);
+
+    return new Ember.RSVP.Promise( (resolve, reject) => {
+      html2canvas($(".image-preview-container"), {
+        onrendered: (canvas) => {
+          this.set("isGenerating", false);
+
+          canvas.toBlob( (blob) => {
+            var reader = new FileReader();
+
+            reader.onloadend = () => {
+              resolve(reader.result);
+            }
+
+            reader.readAsDataURL(blob);
+          });
+        }
+      })
+    });
+  },
+
+  uploadAndTransition: function(dataUri) {
+    var cloudinaryUrl = env.cloudinary.apiHost;
+    var url = cloudinaryUrl + env.cloudinary.cloudName + "/image/upload";
+
+    var data =  {
+      timestamp: Date.now(),
+      api_key: env.cloudinary.apiKey,
+      file: dataUri,
+      upload_preset: env.cloudinary.uploadPreset
+    }
+
+    return Ember.$.post(url, data)
+      .then( (data) => { 
+        this.transitionTo("create.scene", encodeURIComponent(data.public_id + "." + data.format));
+      }).fail( () => { 
+        console.error("Error uploading image", arguments); // TODO: better error handling
+      });
+  },
+
   actions: {
     next: function() {
       this.send("showLoading");
-      $(".image-preview-container").addClass("generating");
-      html2canvas($(".image-preview-container"), {
-        onrendered: function(canvas){
-          $(".image-preview-container").removeClass("generating");
-          canvas.toBlob(function(blob){
-            var reader = new FileReader();
-
-            reader.onloadend = function() {
-              var raw = reader.result;
-              // strip out data:image/png;base64,
-              raw = raw.slice(22);
-
-              filepicker.write({url:this.get("_url")}, raw,
-                {
-                  base64decode: true
-                },
-
-                function(blob) {
-                  this.send("hideLoading");
-                  this.transitionToRoute("create.scene", encodeURIComponent(blob.url+"?"+(new Date()).getTime()));
-                }.bind(this),
-                function(error) {
-                  this.send("hideLoading");
-                  console.log("error", error);
-                  alert("There was an error saving your image. Please try again later.");
-                },
-                function(progress){
-                  console.log("progress", progress);
-                }
-              );
-            }.bind(this)
-
-            reader.readAsDataURL(blob);
-          }.bind(this));
-        }.bind(this)
-      })
-      // var rotation = this.get("rotation");
-      // var position = this.get("position");
-      
-      // // where x is the distance in pixels from the left edge and y is the distance in pixels from the top edge.
-      // var crop = [position.left, position.top, this.get("widthScaled"), this.get("widthScaled")];
-
-      // // rotation must by positive from 0 to 360:
-      // if(rotation < 0) rotation = 360 + rotation;
-
-      // console.log("next", crop, rotation);
-      
-      // filepicker.convert({url:this.get("url")}, {
-      //   //width: 800, height: 800,
-      //   fit: "crop",
-      //   crop: crop 
-      //   //rotate: rotation, 
-      //   //format: "png"
-      // }, {}, 
-      // function(blob) {
-      //   console.log("blob", blob);
-      // },
-      // function(error) {
-      //   console.log("error", error, error.toString());
-      // });
-      
+      this.generate().then(this.uploadAndTransition.bind(this)).finally(() => this.send("hideLoading"));
     }
   }
 

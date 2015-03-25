@@ -1,80 +1,41 @@
 @charset "UTF-8";
 
-@import "bower_components/susy/sass/susy";
-$susy: (
-  columns: 12,
-  gutters: .25,
-  math: fluid,
-);
+@import "bower_components/materialize/sass/materialize";
 
-// Mixins
-@import "bower_components/materialize/sass/components/prefixer";
-@import "bower_components/materialize/sass/components/mixins";
+@import "base/animations";
+@import "base/fonts";
+@import "base/mixins";
 
-// Reset
-@import "bower_components/materialize/sass/components/normalize";
+@import "components/loading";
+@import "components/upload-dialog";
 
-// components
-@import "bower_components/materialize/sass/components/color";
-@import "bower_components/materialize/sass/components/global";
-@import "bower_components/materialize/sass/components/icons-material-design";
-//@import "bower_components/materialize/sass/components/grid";
-@import "bower_components/materialize/sass/components/navbar";
-//@import "bower_components/materialize/sass/components/roboto";
-//@import "bower_components/materialize/sass/components/typography";
-//@import "bower_components/materialize/sass/components/cards";
-//@import "bower_components/materialize/sass/components/toast";
-//@import "bower_components/materialize/sass/components/tabs";
-@import "bower_components/materialize/sass/components/tooltip";
-@import "bower_components/materialize/sass/components/buttons";
-//@import "bower_components/materialize/sass/components/dropdown";
-@import "bower_components/materialize/sass/components/waves";
-@import "bower_components/materialize/sass/components/modal";
-//@import "bower_components/materialize/sass/components/collapsible";
-@import "bower_components/materialize/sass/components/materialbox";
-@import "bower_components/materialize/sass/components/form";
-//@import "bower_components/materialize/sass/components/table_of_contents";
-//@import "bower_components/materialize/sass/components/sideNav";
-//@import "bower_components/materialize/sass/components/preloader";
-//@import "bower_components/materialize/sass/components/date_picker/default.scss";
-//@import "bower_components/materialize/sass/components/date_picker/default.date.scss";
-//@import "bower_components/materialize/sass/components/date_picker/default.time.scss";
-
-@import "loading";
-@import "fonts";
-
-$green: #3cc76e;
-$red: #de3634;
 $text-light: #bec5cc;
 
-$font-family: "brandon-grotesque";
+$font-family: "aktiv-grotesk-std";
 html, body { font-family: $font-family; background: #f1f1f1; font-weight: 600; }
 
 .vertical-center {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.container { @include container(698px); min-width: 698px; width: 698px; }
-
-.container-box { 
-  background-image: url(/images/bg.gif);
-  height: 640px;
-  margin-top: 20px;
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.16);
-  text-align: center;
-  color: white;
-  position: relative;
-
-  h2 { font-size: 2em; margin-bottom: 0; text-transform: uppercase; font-weight: 900; }
-  h3 { color: #bfedd1; }
+  @include vertical-center;
 }
 
 h3 { margin-top: 0; font-size: 1.5em; margin-top: -12px; }
 
+.liquid-outlet {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0; 
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.liquid-child {
+  height: 100%;
+  width: 100%;
+}
+
 .container-box-header {
-  background: $red;
   text-align: left; 
   .brand-logo {
     text-align: left !important;
@@ -87,32 +48,10 @@ h3 { margin-top: 0; font-size: 1.5em; margin-top: -12px; }
   .btn { 
     float: right;
     margin: 13px;
-    @extend .red, .lighten-5;
 
   }
 }
 
-.modal {
-  width: 55%;
-  max-width: 480px;
-
-  h1 { margin-bottom: 0; }
-  h3 { line-height: 1em;
-      font-weight: 400;
-      color: #A2A9B0; }
-
-  input {
-    font-size: 24px;
-    font-weight: 400;
-  }
-
-  .input-error {
-    color: $red;
-    margin-top: 0;
-    font-weight: 400;
-    padding-bottom: 10px;
-  }
-}
 
 .video-box {
   width: 640px;
@@ -123,74 +62,6 @@ h3 { margin-top: 0; font-size: 1.5em; margin-top: -12px; }
 
  video { width: 640px; height: 640px; }
 }
-
-.btn-floating {
-  background: white;
-  color: $green;
-  width: 72px;
-  height: 72px;
-  line-height: 72px;
-  bottom: 8px;
-  right: -8px;
-  position: absolute;
-  i { line-height: 72px; color: $green; font-size: 30px; }
-}
-
-.home-container {
-  background-image: url(/images/diplo.jpg);
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  height: 100%;
-  width: 100%;
-
-  .vertical-center {
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    h3 { color: $text-light; }
-    top: 70%;
-  }
-
-  .btn {
-    @extend .green;
-  }
-}
-// header
-.header {
-  padding-top: 50px;
-  overflow: hidden;
-
-  .mad-decent-brand { 
-    float: left;
-    &, img { width: 75px; }
-  }
-
-  h1 { 
-    float: right;
-    color: $green;
-    text-transform: uppercase;
-    font-size: 36px;
-    text-align: right;
-    font-weight: 900;
-    text-align: right;
-    margin: 0;
-    line-height: 25px;
-
-    strong { color: $red; font-weight: 900; }
-    small { display: block; color: $text-light; font-size: 16px; font-weight: 700;}
-  }
-}
-
-/**
- * create.image
- **/
-
- #twerk-filepicker-frame {
-  width: 100%;
-  height: 500px;
-  border: none;
- }
 
 /**
  * create.crop

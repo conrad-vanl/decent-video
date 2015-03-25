@@ -1,19 +1,20 @@
 <nav class="container-box-header">
-  <h2 class="brand-logo">Adjust your photo</h2>
-  <button class="btn btn-primary" {{action "next"}}>Next</button>
+  <div class="nav-wrapper">
+    {{#link-to "create.index" class="left"}}<i class="mdi-navigation-chevron-left"></i>{{/link-to}}
+    <h2 class="brand-logo center">Adjust your photo</h2>
+    <button class="btn btn-primary" {{action "next"}}>Next</button>
+  </div>
 </nav>
 
 <!-- This wraps the whole cropper -->
 <div class="image-cropper">
-  <div class="image-preview-container">
+  <div class="image-preview-container morpher {{if isGenerating "generating"}}">
     <div class="image-preview">
       <img {{bind-attr src=url width=widthScaled style=imageStyle}}>
       <div class="handle"></div>
     </div>
   </div>
 </div>
-
-<button class="btn pick-photo" {{action "pickImage"}}>Change photo</button>
 
 <div class="image-control image-control-left">
   ROTATE
@@ -29,3 +30,5 @@
   {{input type="range" class="image-zoom" value=zoom step="0.005" max="1" min="0"}}
   <div class="image-control-icon-post"><i class="mdi-content-remove-circle-outline"> </i></div>
 </div>
+
+{{#if isLoading}}{{partial "loading"}}{{/if}}

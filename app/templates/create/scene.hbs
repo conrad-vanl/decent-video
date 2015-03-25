@@ -1,7 +1,9 @@
-<nav class="container-box-header">
-  <h2 class="brand-logo">Choose a scene</h2>
-
-  {{#link-to "watch" scene imageName class="btn btn-primary"}}Finish{{/link-to}}
+<nav class="container-box-header">  
+  <div class="nav-wrapper">
+    {{#link-to "create.crop" class="left"}}<i class="mdi-navigation-chevron-left"></i>{{/link-to}}
+    <h2 class="brand-logo center">Choose a scene</h2>
+    {{#link-to "watch" scene imageName class="btn btn-primary"}}Finish{{/link-to}}
+  </div>
 </nav>
 
 <div class="scene-selection">
@@ -42,6 +44,6 @@
 
 
   <div class="scene-preview scene-selection-preview">
-    {{canvas-preview scene=scene image=url scale=0.5}}
+    {{canvas-preview scene=scene image=model.url scale=0.5}}
   </div>
 </div>

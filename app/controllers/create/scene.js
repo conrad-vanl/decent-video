@@ -1,13 +1,11 @@
 import Ember from 'ember';
 import ENV from "../../config/environment";
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   queryParams: ["scene"],
   scene: "outer-space",
 
-  imageName: function() {
-    return this.get("url").split("file/")[1].split("?")[0];
-  }.property("url"),
+  imageName: Ember.computed.alias("model.filename"),
 
   posterOuterSpace: function() {
     if(!this.get("imageName")) return;

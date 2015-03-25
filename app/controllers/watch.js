@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import ENV from "../config/environment";
 
-export default Ember.ObjectController.extend({
-  params: null,
+export default Ember.Controller.extend({
+  params: Ember.computed.alias("model.params"),
 
   percentageFormatted: function() {
     return parseInt(this.get("value"));
@@ -17,7 +17,7 @@ export default Ember.ObjectController.extend({
   }.property("params.image", "params.scene"),
 
   overlayUrl: function() {
-    return "https://www.filepicker.io/api/file/" + this.get("params.image");
+    return ENV.cloudinary.imageHost + this.get("params.image");
   }.property("params.image"),
 
   // _startPoll: function() { 

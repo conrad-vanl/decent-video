@@ -67,3 +67,8 @@ $loading-4: blue;
    bottom: 0;
    background: rgba(255,255,255,0.9);
 }
+
+.liquid-loader, .liquid-loader .liquid-child {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}

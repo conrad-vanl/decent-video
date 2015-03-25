@@ -5,23 +5,20 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.reopen({
-  notifyGoogleAnalytics: function() {
-    console.log("notifyGoogleAnalytics");
-    return ga('send', 'pageview', {
-        'page': this.get('url'),
-        'title': this.get('url')
-      });
-  }.on('didTransition')
-});
-
 Router.map(function() {
-  this.resource('create', { path: 'twerk' }, function() {
-    //this.route('image');
-    this.route('crop', { path: "/crop/:url"});
+
+  /**
+   * Create video routes
+   * Entry point is cropping selected photo, then choosing a scene
+   */
+  this.resource('create', { path: '/' }, function() {
+    this.route('crop', { path: "/crop"});
     this.route('scene', { path: "/scene/:url"});
   });
 
+  /**
+   * Watch video by scene and image
+   */
   this.route('watch', { path: "w/:scene/:image"});
 });
 

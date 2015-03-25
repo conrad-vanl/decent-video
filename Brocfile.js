@@ -10,33 +10,14 @@ var app = new EmberApp({
   }
 });
 
-app.import("bower_components/materialize/js/waves.js");
-
 app.import("bower_components/jquery-ui/jquery-ui.js");
 app.import("bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.js");
+
+app.import("bower_components/cloudinary/js/jquery.cloudinary.js");
+
 app.import("bower_components/html2canvas/build/html2canvas.js");
 app.import("bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.js");
 
-app.import("bower_components/materialize/js/velocity.min.js");
-app.import("bower_components/materialize/js/leanModal.js");
-app.import("bower_components/materialize/font/material-design-icons/Material-Design-Icons.eot", {
-  destDir: 'font/material-design-icons'
-});
-app.import("bower_components/materialize/font/material-design-icons/Material-Design-Icons.svg", {
-  destDir: 'font/material-design-icons'
-});
-app.import("bower_components/materialize/font/material-design-icons/Material-Design-Icons.ttf", {
-  destDir: 'font/material-design-icons'
-});
-app.import("bower_components/materialize/font/material-design-icons/Material-Design-Icons.woff", {
-  destDir: 'font/material-design-icons'
-});
-
-
 app.import("vendor/zip.js");
-// app.import("vendor/inflate.js", { destDir: 'vendor' });
-// app.import("vendor/deflate.js", { destDir: 'vendor' });
-// app.import("vendor/z-worker.js", { destDir: 'vendor' });
-
 
 module.exports = app.toTree();

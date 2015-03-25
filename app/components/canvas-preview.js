@@ -187,6 +187,10 @@ export default Ember.Component.extend({
     }
   }.observes("canPlay"),
 
+  _blah: function() {
+    window.c = this;
+  }.on("didInsertElement"),
+
   actions: {
     restart: function() { this.restart(); }
   }

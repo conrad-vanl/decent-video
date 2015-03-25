@@ -1,0 +1,8 @@
+<div class="container upload-dialog">
+  {{#file-picker fileLoaded="imageSelected" accept="image/*" multiple=false preview=false readAs="readAsDataURL"}}
+    <span class="btn-floating btn-large waves-effect waves-light morpher">
+      <i class="{{if isLoading "mdi-action-autorenew spin" "mdi-content-add"}}"></i>
+    </span><br>
+    <span class="prompt">Drag here or click to upload your headshot</span>
+  {{/file-picker}}
+</div>
