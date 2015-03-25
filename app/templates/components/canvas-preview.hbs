@@ -1,4 +1,4 @@
-<canvas {{bind-attr width=width height=height}}></canvas>
+<canvas width={{width}} height={{height}}></canvas>
 <audio>
   <source {{bind-attr src=songPath}} type="audio/mpeg">
 </audio>
@@ -8,7 +8,9 @@
 {{/if}}
 
 {{#if canPlay}}
-  <div class="play-overlay">
-    <button class="btn btn-large play" {{action "restart"}}><i class="mdi-av-play-circle-fill"> </i></button>
-  </div>
+  {{#if playable}}
+    <div class="play-overlay">
+      <button class="btn btn-large play" {{action "restart"}}><i class="mdi-av-play-circle-fill"> </i></button>
+    </div>
+  {{/if}}
 {{/if}}

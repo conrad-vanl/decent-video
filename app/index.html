@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Title</title>
+    <title>A Very Decent Twerk-site</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for 'head'}}
 
@@ -20,41 +19,10 @@
   <body>
     {{content-for 'body'}}
 
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '570900676343143',
-          xfbml      : true,
-          version    : 'v2.2'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <script type="text/javascript" charset="utf-8" src="http://cdn.clappr.io/latest/clappr.min.js"></script>
-    
-    <script src="assets/vendor.js"></script>
-    
+    <script src="assets/vendor.js"></script>  
     <script src="assets/decent-twerk-web.js"></script>
 
     {{content-for 'body-footer'}}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-45186238-3', 'auto');
-      ga('require', 'displayfeatures');
-      ga('send', 'pageview');
-
-    </script>
   </body>
 </html>

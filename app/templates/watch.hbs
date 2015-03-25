@@ -1,23 +1,7 @@
-<div class="container container-box">
-  <div class="video-box">
-    {{#if location}}
-      {{video-player url=s3Url poster=poster}}
-    {{else}}
-      <div class="watch-preview">{{canvas-preview scene=params.scene image=overlayUrl}}</div>
-      {{!-- <div class="generating-video">
-        {{#if ready}}
-        HQ video ready! <div class="percentage"><a href="#" {{action "switchVideo"}}>View</a></div>
-        {{else}}
-          Processing HQ &amp; downloadable video... <div class="percentage">{{percentageFormatted}}%</div>
-        {{/if}}
-      </div> --}}
-    {{/if}}
-  </div>
-
-  <ul class="social-buttons">
-    <li><button {{action "socialFacebook"}}><i class="tkshop tkshop-facebook-squared"> </i> <span>share</span></button></li>
-    <li><button {{action "socialTwitter"}}><i class="tkshop tkshop-twitter"> </i> <span>tweet</span></button></li>
-    <li><button {{action "socialPinterest"}}><i class="tkshop tkshop-pinterest"> </i> <span>pin</span></button></li>
-  </ul>
-
+<div class="video-box">
+  {{#if location}}
+    {{video-player url=s3Url poster=poster}}
+  {{else}}
+    <div class="watch-preview">{{canvas-preview scene=params.scene image=overlayUrl}}</div>
+  {{/if}}
 </div>
