@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
+  /** Initiate cropper by setting up the draggable */
   _setupCropper: function() {
     var container = this.$(".image-preview");
     var offset = container.offset();
@@ -11,9 +12,7 @@ export default Ember.View.extend({
         offset.left + (container.width()), 
         offset.top + (container.height())
       ]
-
-    console.log("containment", containment);
-
+      
     this.$(".image-preview").draggable({
       //containment: containment
       create: function(event, ui) {
@@ -25,5 +24,10 @@ export default Ember.View.extend({
         this.get("controller").set("offset", ui.offset);
       }.bind(this)
     });
-  }.on("didInsertElement", "controller.url")
+  }.on("didInsertElement", "controller.url"),
+
+  /** Need to manually set css rotation for the image */
+  _imageStyle: function(){
+    this.$(".image-preview img").css("transform", "rotate("+this.get("controller.rotation")+"deg)");
+  }.observes("controller.rotation"),
 });

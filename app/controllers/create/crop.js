@@ -4,25 +4,32 @@ import AppLoad from "../../mixins/application-loading";
 
 export default Ember.Controller.extend(AppLoad, {
   needs: ["create"],
+  
+  /** @type {File} File object for uploaded image */
   file: Ember.computed.alias("controllers.create.file"),
+
+  /** @type {String} data-uri for uploaded image */
   url: Ember.computed.alias("file.data"),
 
+  /** @type {Number} Rotation of cropper in deg */
   rotation: 0,
-  _imageStyle: function(){
-    //return "transform: rotate("+this.get("rotation")+"deg)";
-    $(".image-preview img").css("transform", "rotate("+this.get("rotation")+"deg)");
-  }.observes("rotation"),
 
+  /** @type {Number} Zoom amount of cropper, 0 to 1 */
   zoom: 0,
+
+  /** The width to render the image at */
   widthScaled: function() {
     // 0 = the width of the mask
     // 1 = 3x the width of the container
     return this.get("zoom") * (800*2) + 800
   }.property("zoom"),
 
+  /**
+   * Create File Blob for cropped/rotated head shot
+   * @return {Promise} resolves with blob
+   */
   generate: function() {
     this.set("isGenerating", true);
-
     return new Ember.RSVP.Promise( (resolve, reject) => {
       html2canvas($(".image-preview-container"), {
         onrendered: (canvas) => {
@@ -42,6 +49,11 @@ export default Ember.Controller.extend(AppLoad, {
     });
   },
 
+  /**
+   * Upload rotated/cropped image and transition to scene selection
+   * - uploads to cloudinary
+   * - transitions to "create.scene"
+   */
   uploadAndTransition: function(dataUri) {
     var cloudinaryUrl = env.cloudinary.apiHost;
     var url = cloudinaryUrl + env.cloudinary.cloudName + "/image/upload";
@@ -62,6 +74,9 @@ export default Ember.Controller.extend(AppLoad, {
   },
 
   actions: {
+    /**
+     * User-invoked action that generates image and transitions to scene selection
+     */
     next: function() {
       this.send("showLoading");
       this.generate().then(this.uploadAndTransition.bind(this)).finally(() => this.send("hideLoading"));

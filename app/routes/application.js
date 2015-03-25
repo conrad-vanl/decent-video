@@ -13,7 +13,6 @@ export default Ember.Route.extend({
 
   actions: {
 
-
     /** Action for showing loading indicator */
     showLoading: function() { this.loading(true); },
 
