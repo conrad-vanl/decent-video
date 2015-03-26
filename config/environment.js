@@ -48,11 +48,12 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    ENV.baseURL = '/decent-video'
+
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/decent-video';
+    ENV.assetEndpoint = '/decent-video';
   }
 
   return ENV;
