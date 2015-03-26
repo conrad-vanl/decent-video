@@ -7,6 +7,8 @@ The Ember app that is in this repo is a stripped down version of the site that r
 
 I also plan to continue exploring how `<canvas>` and in-browser javascript can be used to combine user-provided content and video to create interactive (and hopefully in the future more immersive) experiences.
 
+**Demo:** http://convan.me/decent-video/
+
 ## How this works
 
 1. User selects a headshot and crops/rotates their photo within a head-shaped mask
