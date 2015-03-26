@@ -5,7 +5,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   fingerprint: {
     exclude: ["deflate.js", "inflate.js", "zip.js", "zip-ext.js", "zip-fs.js"],
-    extensions: ['js', 'css', 'jpg', 'png', 'gif', 'ttf', 'eot', 'svg', 'otf']
+    extensions: ['js', 'css', 'jpg', 'png', 'gif', 'ttf', 'eot', 'svg', 'otf'],
+    prepend: '/decent-video/'
   }
 });
 
