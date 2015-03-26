@@ -3,7 +3,7 @@
 This project is an experiment for compositing user-provided content and syncing it with live-action video footage in the browser. 
 It was used in a viral marketing site for Mad Decent's 2014 Holiday album for an Elf Yourself inspired parody. 
 
-The Ember app that is in this repo is a stripped down version of the Mad Decent site, with 4 of the videos from the original campaign for demonstration purposes. The app does run in a mobile browser with decently performing playback. The site is although currently not responsive, as certain parts of the process relies on precise pixel sizes, however I'm working on changing that.
+The Ember app that is in this repo is a stripped down version of the Mad Decent site, with 4 of the videos from the original campaign for demonstration purposes. The app does run in a mobile browser with decently performing playback. Although, site is currently not responsive as certain parts of the process relies on precise pixel sizes, however I'm working on improving that.
 
 I also plan to continue exploring how `<canvas>` and in-browser javascript can be used to combine user-provided content and video to create interactive (and hopefully in the future more immersive) experiences.
 
@@ -36,7 +36,12 @@ Fewer network requests. Uncompressing a compressed zip file is very taxing on a 
 
 Super-imposing the overlay image now is rather simple - we can simply draw it out on the `<canvas>` using the tracking data from the JSON file to position. We also need to make sure the positioning data is properly transformed to consider the current scale of the `<canvas>` compared to the scale that the JSON positioning data is based on.
 
-Also, technically I am underlaying the image - it is being onto the `<canvas>` before the video frame, so that we don't have to worry about cleanly masking out the headshot image.
+Also, technically I am underlaying the image - it is being drawn onto the `<canvas>` before the video frame, so that we don't have to worry about cleanly masking out the headshot image.
+
+## Other un-organized notes
+
+1. This project needs tests
+2. The project that launched with Mad Decent's XMAS campaign included a server-side `Node.js` process that generated on-demand image previews that was used for social sharing and also generated H.264 MP4 video files of their custom video that users could download. This process ran in an on-demand worker queue on Heroku (only costing roughly $0.0005 per video!) and used most of the same code that is currently in the `decent-video` component. I also plan on eventually releasing portions of that code (however it's a complete mess right now).
 
 
 ## Prerequisites
