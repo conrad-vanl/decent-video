@@ -20,12 +20,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    API_ENDPOINT: "//decentxmas.com",
-
-    awsBucket: "mad-decent-twerkshop-videos",
-    awsBucketEndpoint: "//mad-decent-twerkshop-videos.s3.amazonaws.com",
-    assetEndpoint: "//s3.amazonaws.com/mad-decent-twerkshop",
-
     cloudinary: {
       cloudName: "conrad-personal",
       apiKey: "187814196291842",
@@ -41,9 +35,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    ENV.assetEndpoint = "";
-    ENV.API_ENDPOINT = "//192.168.1.91:3000";
   }
 
   if (environment === 'test') {
