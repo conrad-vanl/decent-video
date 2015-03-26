@@ -3,7 +3,7 @@
 This project is an experiment for compositing user-provided content and syncing it with live-action video footage in the browser. 
 It was used in a viral marketing site for Mad Decent's 2014 Holiday album for an Elf Yourself inspired parody. 
 
-The Ember app that is in this repo is a stripped down version of the Mad Decent site, with 4 of the videos from the original campaign for demonstration purposes. The app does run in a mobile browser with decently performing playback. Although, site is currently not responsive as certain parts of the process relies on precise pixel sizes, however I'm working on improving that.
+The Ember app that is in this repo is a stripped down version of the site that ran with Mad Decent, with 4 of the videos from the original campaign for demonstration purposes. The app does run in a mobile browser with decently performing playback. Although, site is currently not responsive as certain parts of the process relies on precise pixel sizes, however I'm working on improving that.
 
 I also plan to continue exploring how `<canvas>` and in-browser javascript can be used to combine user-provided content and video to create interactive (and hopefully in the future more immersive) experiences.
 
